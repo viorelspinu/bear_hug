@@ -1,1 +1,2 @@
-# bear_hug
+# bear-hug
+
