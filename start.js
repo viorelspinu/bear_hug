@@ -10,11 +10,16 @@ setInterval(toggle, 1000);
 
 function updateHeart() {
     currentValue = currentValue + ((targetValue - currentValue) / 5);
+    if (currentValue > 70) {
+        $("#share").show();
+    } else {
+        $("#share").hide();
+    }
     document.getElementById("heart").ldBar.set(currentValue);
 }
 
 function toggle() {
-    if (!started){
+    if (!started) {
         return;
     }
     var d = new Date();
@@ -22,7 +27,7 @@ function toggle() {
     if ((currentTime - lastUpdateTime) > 1000 * 10) {
         if (!videoVisible) {
             show('video');
-            $('body').css('backgroundImage','url()');
+            $('body').css('backgroundImage', 'url()');
         }
     }
 }
@@ -48,10 +53,10 @@ function update(event) {
         }
     }
 
-    if (value > 6){
-        $('body').css('backgroundImage','url(img/hearts.png)');
+    if (value > 6) {
+        $('body').css('backgroundImage', 'url(img/hearts.png)');
     }
-  
+
     console.log(String.fromCharCode(event.charCode));
     set(value * 14);
 }

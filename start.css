@@ -1,3 +1,17 @@
+.center-screen {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 560px;
+    height: 300px;
+    color:white;
+    font-size: 50px;
+
+  }
+
 .ldBar-label {
     color: red;
     font-family: tahoma;
