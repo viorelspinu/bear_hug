@@ -28,6 +28,7 @@ function toggle() {
         if (!videoVisible) {
             show('video');
             $('body').css('backgroundImage', 'url()');
+            $("#share").hide();
         }
     }
 }
