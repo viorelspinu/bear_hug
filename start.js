@@ -4,9 +4,10 @@ let currentValue = 0;
 let lastUpdateTime = 0;
 let started = false;
 let win = false;
+let maxValue = 0;
 
 setInterval(updateHeart, 10);
-setInterval(toggle, 1000);
+setInterval(toggle, 100);
 
 function updateHeart() {
     currentValue = currentValue + ((targetValue - currentValue) / 5);
@@ -24,8 +25,12 @@ function toggle() {
     }
     var d = new Date();
     var currentTime = d.getTime();
+    if ((currentTime - lastUpdateTime) > 1000){
+        targetValue = maxValue;
+    }
     if ((currentTime - lastUpdateTime) > 1000 * 10) {
         if (!videoVisible) {
+            maxValue = 0;
             show('video');
             $('body').css('backgroundImage', 'url()');
             $("#share").hide();
@@ -37,6 +42,9 @@ function set(value) {
     if (!value) {
         return;
     }
+    if (value > maxValue){
+        maxValue = value;
+    }
     targetValue = value;
 }
 
@@ -45,7 +53,7 @@ function update(event) {
         return;
     }
     var value = event.charCode - 48;
-    if (value > 2) {
+    if (value > 0) {
         var d = new Date();
         lastUpdateTime = d.getTime();
 
@@ -61,9 +69,6 @@ function update(event) {
     console.log(String.fromCharCode(event.charCode));
     set(value * 14);
 }
-
-
-
 
 
 
