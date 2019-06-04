@@ -53,7 +53,7 @@ function update(event) {
         return;
     }
     var value = event.charCode - 48;
-    if (value > 0) {
+    if (value > 2) {
         var d = new Date();
         lastUpdateTime = d.getTime();
 
