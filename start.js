@@ -25,9 +25,11 @@ function toggle() {
     }
     var d = new Date();
     var currentTime = d.getTime();
-    if ((currentTime - lastUpdateTime) > 1000){
+
+    if ((currentTime - lastUpdateTime) > 1000) {
         targetValue = maxValue;
     }
+
     if ((currentTime - lastUpdateTime) > 1000 * 10) {
         if (!videoVisible) {
             maxValue = 0;
@@ -53,7 +55,12 @@ function update(event) {
         return;
     }
     var value = event.charCode - 48;
-    if (value > 2) {
+    var treshold = 2;
+    if (maxValue > 0){
+        treshold = 5;
+    }
+
+    if (value > treshold) {
         var d = new Date();
         lastUpdateTime = d.getTime();
 
