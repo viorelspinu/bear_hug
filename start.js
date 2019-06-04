@@ -65,10 +65,10 @@ function update(event) {
         if (videoVisible) {
             show('heart');
         }
-        set(value * 14);
+        set((value - 3) * 17);
     }
 
-    if (value > 6) {
+    if (value > 8) {
         $('body').css('backgroundImage', 'url(img/hearts.png)');
     }
 
