@@ -44,7 +44,7 @@ function set(value) {
     if (!value) {
         return;
     }
-    if (value > maxValue){
+    if (value > maxValue) {
         maxValue = value;
     }
     targetValue = value;
@@ -55,8 +55,9 @@ function update(event) {
         return;
     }
     var value = event.charCode - 48;
+
     var treshold = 2;
-    if (maxValue > 0){
+    if (maxValue > 0) {
         treshold = 5;
     }
 
@@ -67,6 +68,7 @@ function update(event) {
         if (videoVisible) {
             show('heart');
         }
+        set(value * 14);
     }
 
     if (value > 6) {
@@ -74,7 +76,8 @@ function update(event) {
     }
 
     console.log(String.fromCharCode(event.charCode));
-    set(value * 14);
+
+
 }
 
 
