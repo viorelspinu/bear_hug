@@ -56,12 +56,9 @@ function update(event) {
     }
     var value = event.charCode - 48;
 
-    var treshold = 2;
-    if (maxValue > 0) {
-        treshold = 5;
-    }
+   
 
-    if (value > treshold) {
+    if (value > 2) {
         var d = new Date();
         lastUpdateTime = d.getTime();
 
